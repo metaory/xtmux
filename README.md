@@ -9,6 +9,10 @@ dark tmux theme, with random colors from [mxcolr](https://github.com/metaory/mxc
   <img src="./assets/2022-01-30-101819_2560x1080_scrot.png">
 </p>
 
+<p align="center">
+  <img src="./assets/2022-01-30-162046_734x304_scrot.png">
+</p>
+
 the mxc project generate the `tmux.mx` file and re-source the `tmuxtheme` file
 ![mxcolr](./assets/gifcast_220130114850.gif)
 
