@@ -9,6 +9,8 @@ dark tmux theme, with random colors from mxcolr project
   <img src="./assets/2022-01-30-101819_2560x1080_scrot.png">
 </p>
 
+![mxcolr](./assets/gifcast_220130114850.gif)
+
 Usage
 =====
 ```
