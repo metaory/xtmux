@@ -34,6 +34,6 @@ set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{25
 
 ######
 
-source-file $XDG_CONFIG_HOME/tmux/tmux.mx
-source-file $XDG_CONFIG_HOME/tmux/meta.min.tmuxtheme
+# source-file $XDG_CONFIG_HOME/tmux/tmux.mx
+# source-file $XDG_CONFIG_HOME/tmux/meta.min.tmuxtheme
 
