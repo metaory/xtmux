@@ -4,18 +4,9 @@ unbind C-s
 set      -g prefix      C-s
 bind C-s send-prefix
 
+## ########################################################################### #
 bind-key -T prefix  t   clock-mode
 bind-key -T prefix C-u set -g status off
-## ########################################################################### #
-bind -nr         C-M-I run-shell 'tmux set-option -w  @WIC "$(shuf -n 1 -e $(cat ~/dev/meta/municode/dumps/uni-etc))"'  \; display-message -d 500 "  set #{@WIC} from uni-etc. "
-
-bind-key -T prefix C-i run-shell 'tmux set-option -w  @WIC "$(shuf -n 1 -e $(cat ~/dev/meta/municode/dumps/uni-etc))"'  \; display-message -d 500 "  set #{@WIC} from uni-etc. "
-bind-key -T prefix   i run-shell 'tmux set-option -w  @WIC "$(shuf -n 1 -e $(cat ~/dev/meta/municode/dumps/uni-mico))"' \; display-message -d 500 "  set #{@WIC} from uni-mico."
-
-bind -nr         C-M-R run-shell 'env -i mxcolr -r'  \; send 'C-c'
-bind-key -T prefix   u run-shell 'env -i mxcolr -u'  \; send 'C-c'
-
-bind-key -T prefix   R run-shell 'env -i mxcolr -s' \; display-message -d 500 "  snapshot saved."
 ## ########################################################################### #
 bind-key -T prefix   C-r display-menu -T "#[align=centre]#{window_index}:#{window_name} #[fg=#{@WBG}]#{@WIC} " -x C -y P \
 "" \
