@@ -94,11 +94,8 @@ bind -n C-d  if-shell -b "[ $(tmux display-message -p \"#{T:pane_current_command
 
 bind C-c send-keys 'C-l'
 
-bind-key -T prefix C run-shell 'mtx -n #{M_SOCK}'
-
 bind-key -T prefix c \
   new-window  -c "#{?#{pane_current_path},#{pane_current_path},~/void}" -n "" \; \
   command-prompt -I  "#W" "rename-window  -- '%%'" \; \
-  run-shell "tmux set -w @WIC $(bash -c 'shuf -n 1 -e $(cat ~/dev/meta/municode/dumps/uni-dump-format)')" \; \
   source-file ~/.config/tmux/meta.min.tmuxtheme
 
