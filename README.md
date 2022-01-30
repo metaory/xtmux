@@ -3,7 +3,7 @@
   <img src="./assets/2022-01-29-163127_318x127_scrot.png">
 </p>
 
-dark tmux theme, with random colors from mxcolr project
+dark tmux theme, with random colors from [mxcolr](https://github.com/metaory/mxcolr) project
 
 <p align="center">
   <img src="./assets/2022-01-30-101819_2560x1080_scrot.png">
