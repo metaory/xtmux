@@ -1,0 +1,92 @@
+# source-file ~/.config/mxc/tmux.mx 
+set  -g @LINE_NW1      ""
+set  -g @LINE_NW2      ""
+set  -g @LINE_NE1      ""
+set  -g @LINE_NE2      ""
+
+#  .....................................................  #
+###########################################################
+#%**. ............................................... <<
+###########################################################
+# set -wq @_WIC "#{@WIC}" #  #{@_WIC}
+set -wq @_TTY "#{=-1:pane_tty}"
+set -wq @_WID "#{window_id}"
+set -wqF  @L-SCREEN  " #{@_WID} #[fg=#{SBG},bg=#{XBG},nobold]#{@LINE_NW2}"
+# set -g  @x-bat_val "#(mx-bat)"
+set -gF @r-env1 "#[bg=#{XBG}]"
+set -gF @r-env3 "#[fg=#{EFG},bg=#{EBG}]"
+# set -gF @R-BAT "#[bg=#{SK0}]#{@LINE_NE2} #{@x-bat_val} #[bg=#{XBG},fg=#{SK0}]#{@LINE_NE2}"
+set -gwF @R-ENV "#[bg=#{XBG},fg=#{SBG}]#{@LINE_NE1}#[reverse,bg=#{SFG}]#{@_TTY}#[noreverse]#[bg=#{XBG},fg=#{SBG}]#{@LINE_NE2}#[bg=#{XBG},fg=#{EBG}]#{@LINE_NE1}#[bg=#{EBG},fg=#{EFG},bold]#{session_id} "
+
+set -g  @__x_path "#{=/-16/.:pane_current_path}"
+set -g  @__x_name "#{pane_current_command}" # 🟕 🟖 🟗 🟘   #{w_ndow_name}
+
+set -gF @__Xtim "#[fg=#{WK4}]%R"
+set -gF @__Xpth "#[fg=#{EK1}]#{@LINE_NE1}#[default]#[fg=#{EK6},bg=#{EK1}] #{@__x_path}#[fg=#{EK1}]"
+set -gF @__Xcmd "#[bg=#{SK2}]#{@LINE_NE2}#[default]#[bg=#{SK2},fg=#{SK8}]#{@__x_name}#[fg=#{SK2},bg=#{XBG}]"
+set -gF @R-XINFO "#{@__Xtim}#{@__Xpth}#{@__Xcmd}"
+#%**. .............................................. >>>
+
+set -wq @_PID "#{pane_index}"
+set -wqF @L-XFLAG  "#[fg=#{EBG},bold]#{@LINE_NW1}#[bg=#{EBG},fg=#{EFG}]#{@_PID}#[bg=#{XBG},fg=#{EBG}]#{@LINE_NW2}"
+#%**. .............................................. >>>
+set -q  @l_ww_flags "#{?window_zoomed_flag,➕,}#{?session_many_attached,  ,}"
+set -q  @l_wo_flag  "#{?window_zoomed_flag,#[bold],#[nobold]}"
+# ·⑊
+set -q  @l_ww_value "#[bold]#{window_name}#[dim,nobold]#{pane_current_command}·#[bold,nodim]#{=-12:pane_current_path}#[nodim,nobold]" # #[nodim]
+set -q  @l_wo_value "#[dim]#{=-3:window_name}#{=-6:pane_current_path}#[nodim,nobold]" # #[nodim]
+
+set -Fq @l_wx_prefix "#[bg=#{XBG},fg=#{WBG}]#{@LINE_NW1}#[default]#[noreverse]"
+set -Fq @l_wo_prefix "#[fg=#{OBG},bg=#{XBG}]#{@LINE_NW1}#[default]#[noreverse]"
+
+set -Fq @l_wx_suffix "#[bg=#{XBG},fg=#{WBG}]#{@LINE_NW2}"
+set -Fq @l_wo_suffix "#[fg=#{OBG},bg=#{XBG}]#{@LINE_NW2}"
+
+set -Fwq @L-WX "#{@l_wx_prefix}#{@l_ww_flags}#{@l_ww_value}#{@l_wx_suffix}"
+set -Fwq @L_WO "#{@l_wo_prefix}#{@l_wo_flag}#{@l_ww_flags}#{@l_wo_value}#{@l_wo_suffix}"
+
+set -Fq @S-WO_SP ""
+#%** << ............................................  <<
+#%**. ............................................... <<
+set -g   status on
+
+set -g   status-position bottom
+set -g   monitor-activity off
+set -g   visual-activity off
+set -g   aggressive-resize on
+set -g   status-interval 300
+set -g   status-justify left 
+set -g   status-left-length "60"
+set -g   status-right-length "40"
+set -g   clock-mode-style 24
+#%**. ............................................... <<
+## ########################################################
+set -gF  display-panes-active-colour "#{WBG}"
+set -gF  display-panes-colour "#{SK4}"
+set -gF  message-command-style "fg=#{SBG},bg=#{SK3},bold"
+set -gF  message-style "fg=#{WBG},bg=#{SK2},bold"
+
+set -gwF clock-mode-colour "#{EBG}"
+set -gwF pane-border-style "fg=#{SK2}"
+set -gwF pane-active-border-style "fg=#{WBG}"  #colour5
+
+set -gwF mode-style "bg=#{WBG},fg=#{WFG},bold"
+set -gwF copy-mode-match-style         "bg=#{SBG},fg=#{SFG},bold"
+set -gwF copy-mode-current-match-style "bg=#{EBG},fg=#{EFG},bold"
+set -gwF copy-mode-mark-style          "bg=#{WBG},fg=#{WFG},bold"
+#   ########################################################
+set -gF status-style                "bg=#{XBG},fg=#{WFG}"
+set -gF status-left-style           "bg=#{SBG},fg=#{SFG},bold"
+set -gF status-right-style          "bg=#{XBG},fg=#{SK7},bold,italics"
+#   ########################################################
+set -wqF  status-left  "#{@L-SCREEN}#{@L-XFLAG}"
+set -wqF  status-right "#{@R-XINFO}#{@R-ENV}"
+# set -wqF  status-right "#{@R-XINFO}#{@R-BAT}#{@R-ENV}"
+#   ########################################################
+set -gF window-style                 "bg=#{XBG},fg=#{XFG}"
+set -gF window-status-style          "bg=#{OBG},fg=#{OFG}"
+set -gwF window-status-last-style    "bg=#{OBG},fg=#{OFG}"
+set -gwF window-status-current-style "bg=#{WBG},fg=#{WFG}"
+set -wqF window-status-format        "#{@L_WO}"
+set -wq  window-status-separator ""
+set -wqF window-status-current-format "#{@L-WX}"
