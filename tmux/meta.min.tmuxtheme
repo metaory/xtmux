@@ -4,22 +4,27 @@ set  -g @LINE_NW2      ""
 set  -g @LINE_NE1      ""
 set  -g @LINE_NE2      ""
 
+# set  -g @LINE_NW1      " "
+# set  -g @LINE_NW2      " "
+# set  -g @LINE_NE1      " "
+# set  -g @LINE_NE2      " "
+
+# set  -g @LINE_NW1      ""
+# set  -g @LINE_NW2      ""
+# set  -g @LINE_NE1      ""
+# set  -g @LINE_NE2      ""
+
 #  .....................................................  #
 ###########################################################
-#%**. ............................................... <<
-###########################################################
-# set -wq @_WIC "#{@WIC}" #  #{@_WIC}
 set -wq @_TTY "#{=-1:pane_tty}"
 set -wq @_WID "#{window_id}"
 set -wqF  @L-SCREEN  " #{@_WID} #[fg=#{SBG},bg=#{XBG},nobold]#{@LINE_NW2}"
-# set -g  @x-bat_val "#(mx-bat)"
 set -gF @r-env1 "#[bg=#{XBG}]"
 set -gF @r-env3 "#[fg=#{EFG},bg=#{EBG}]"
-# set -gF @R-BAT "#[bg=#{SK0}]#{@LINE_NE2} #{@x-bat_val} #[bg=#{XBG},fg=#{SK0}]#{@LINE_NE2}"
 set -gwF @R-ENV "#[bg=#{XBG},fg=#{SBG}]#{@LINE_NE1}#[reverse,bg=#{SFG}]#{@_TTY}#[noreverse]#[bg=#{XBG},fg=#{SBG}]#{@LINE_NE2}#[bg=#{XBG},fg=#{EBG}]#{@LINE_NE1}#[bg=#{EBG},fg=#{EFG},bold]#{session_id} "
 
 set -g  @__x_path "#{=/-16/.:pane_current_path}"
-set -g  @__x_name "#{pane_current_command}" # 🟕 🟖 🟗 🟘   #{w_ndow_name}
+set -g  @__x_name "#{pane_current_command}"
 
 set -gF @__Xtim "#[fg=#{WK4}]%R"
 set -gF @__Xpth "#[fg=#{EK1}]#{@LINE_NE1}#[default]#[fg=#{EK6},bg=#{EK1}] #{@__x_path}#[fg=#{EK1}]"
@@ -33,8 +38,8 @@ set -wqF @L-XFLAG  "#[fg=#{EBG},bold]#{@LINE_NW1}#[bg=#{EBG},fg=#{EFG}]#{@_PID}#
 set -q  @l_ww_flags "#{?window_zoomed_flag,➕,}#{?session_many_attached,  ,}"
 set -q  @l_wo_flag  "#{?window_zoomed_flag,#[bold],#[nobold]}"
 # ·⑊
-set -q  @l_ww_value "#[bold]#{window_name}#[dim,nobold]#{pane_current_command}·#[bold,nodim]#{=-12:pane_current_path}#[nodim,nobold]" # #[nodim]
-set -q  @l_wo_value "#[dim]#{=-3:window_name}#{=-6:pane_current_path}#[nodim,nobold]" # #[nodim]
+set -q  @l_ww_value "#[bold]#{window_name}#[dim,nobold]#{pane_current_command}·#[bold,nodim]#{=-12:pane_current_path}#[nodim,nobold]"
+set -q  @l_wo_value "#[dim]#{=-3:window_name}#{=-6:pane_current_path}#[nodim,nobold]"
 
 set -Fq @l_wx_prefix "#[bg=#{XBG},fg=#{WBG}]#{@LINE_NW1}#[default]#[noreverse]"
 set -Fq @l_wo_prefix "#[fg=#{OBG},bg=#{XBG}]#{@LINE_NW1}#[default]#[noreverse]"
@@ -90,3 +95,4 @@ set -gwF window-status-current-style "bg=#{WBG},fg=#{WFG}"
 set -wqF window-status-format        "#{@L_WO}"
 set -wq  window-status-separator ""
 set -wqF window-status-current-format "#{@L-WX}"
+
