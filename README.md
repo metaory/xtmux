@@ -22,7 +22,7 @@ dark tmux theme, with random colors from [mxcolr](https://github.com/metaory/mxc
 </p>
 
 the mxc project generate the `tmux.mx` file and re-source the `tmuxtheme` file
-![mxcolr](./assets/gifcast_220130114850.gif)
+![mxcolr](./assets/gifcast_220201101903.gif)
 
 Usage
 =====
