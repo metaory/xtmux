@@ -1,3 +1,4 @@
+# source-file ~/.config/mxc/tmux.mx 
 
 # set  -g @LINE_NW1      " "
 # set  -g @LINE_NW2      " "
@@ -16,10 +17,11 @@ set  -g @LINE_NE2      ""
 
 ###########################################################
 
-set -wq @_TTY "#{=-1:pane_tty}"
-set -wq @_WID "#{window_id}"
-set -wqF  @L_SCREEN  " #{@_WID} #[fg=#{SBG},bg=#{XBG},nobold]#{@LINE_NW2}"
-set -gwF @R_ENV "#[bg=#{XBG},fg=#{SBG}]#{@LINE_NE1}#[reverse,bg=#{SFG}]#{@_TTY}#[noreverse]#[bg=#{XBG},fg=#{SBG}]#{@LINE_NE2}#[bg=#{XBG},fg=#{EBG}]#{@LINE_NE1}#[bg=#{EBG},fg=#{EFG},bold]#{session_id} "
+set -wq @L_1_VALUE "#{window_id}"
+set -wqF  @L_1  " #{@L_1_VALUE} #[fg=#{SBG},bg=#{XBG},nobold]#{@LINE_NW2}"
+
+set -wq @R_2_VALUE "#{=-1:pane_tty}"
+set -gwF @R_2 "#[bg=#{XBG},fg=#{SBG}]#{@LINE_NE1}#[reverse,bg=#{SFG}]#{@R_2_VALUE}#[noreverse]#[bg=#{XBG},fg=#{SBG}]#{@LINE_NE2}#[bg=#{XBG},fg=#{EBG}]#{@LINE_NE1}#[bg=#{EBG},fg=#{EFG},bold]#{session_id} "
 
 set -g  @__x_path "#{=/-16/.:pane_current_path}"
 set -g  @__x_name "#{pane_current_command}"
@@ -27,10 +29,10 @@ set -g  @__x_name "#{pane_current_command}"
 set -gF @__Xtim "#[fg=#{WK4}]%R"
 set -gF @__Xpth "#[fg=#{SK3}]#{@LINE_NE1}#[default]#[fg=#{SK6},bg=#{SK3}] #{@__x_path}#[fg=#{SK3}]"
 set -gF @__Xcmd "#[bg=#{SK2}]#{@LINE_NE2}#[default]#[bg=#{SK2},fg=#{SK8}]#{@__x_name}#[fg=#{SK2},bg=#{XBG}]"
-set -gF @R_INFO "#{@__Xtim}#{@__Xpth}#{@__Xcmd}"
+set -gF @R_1 "#{@__Xtim}#{@__Xpth}#{@__Xcmd}"
 
-set -wq @_PID "#{pane_index}"
-set -wqF @L-XFLAG  "#[fg=#{EBG},bold]#{@LINE_NW1}#[bg=#{EBG},fg=#{EFG}]#{@_PID}#[bg=#{XBG},fg=#{EBG}]#{@LINE_NW2}"
+set -wq @L_2_VALUE "#{pane_index}"
+set -wqF @L_2  "#[fg=#{EBG},bold]#{@LINE_NW1}#[bg=#{EBG},fg=#{EFG}]#{@L_2_VALUE}#[bg=#{XBG},fg=#{EBG}]#{@LINE_NW2}"
 
 set -q  @l_ww_flags "#{?window_zoomed_flag,✚ ,}#{?session_many_attached,  ,}"
 set -q  @l_wo_flag  "#{?window_zoomed_flag,#[bold],#[nobold]}"
@@ -78,8 +80,8 @@ set -gF status-style                "bg=#{XBG},fg=#{WFG}"
 set -gF status-left-style           "bg=#{SBG},fg=#{SFG},bold"
 set -gF status-right-style          "bg=#{XBG},fg=#{SK7},bold,italics"
 #   ########################################################
-set -wqF  status-left  "#{@L_SCREEN}#{@L-XFLAG}"
-set -wqF  status-right "#{@R_INFO}#{@R_ENV}"
+set -wqF  status-left  "#{@L_1}#{@L_2}"
+set -wqF  status-right "#{@R_1}#{@R_2}"
 #   ########################################################
 set -gF window-style                 "bg=#{XBG},fg=#{XFG}"
 set -gF window-status-style          "bg=#{OBG},fg=#{OFG}"
@@ -88,4 +90,5 @@ set -gwF window-status-current-style "bg=#{WBG},fg=#{WFG}"
 set -wqF window-status-format        "#{@L_WO}"
 set -wq  window-status-separator ""
 set -wqF window-status-current-format "#{@L_WX}"
+
 
