@@ -22,7 +22,6 @@ bind-key -T prefix   C-r display-menu -T "#[align=centre]#{window_index}:#{windo
 "#[fg=colour2]  #[fg=#{@EBG}] Save mico" "s" "if-shell -b '(grep #{@WIC} ~/dev/meta/municode/dumps/uni-mico)' {
   display-message '#[bg=colour0,fg=colour1,fill=colour0,bold] #{@WIC} exists '
 } {
-  run-shell 'echo -n \" #{@WIC}\" >> ~/dev/meta/municode/dumps/uni-mico'
   display-message -d 500 '  added #{@WIC} to uni-mico'
 }" \
 "" \
