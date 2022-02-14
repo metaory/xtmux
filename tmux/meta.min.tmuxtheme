@@ -1,5 +1,3 @@
-# source-file ~/.config/mxc/tmux.mx 
-
 # set  -g @LINE_NW1      " "
 # set  -g @LINE_NW2      " "
 # set  -g @LINE_NE1      " "
@@ -17,7 +15,7 @@ set  -g @LINE_NE2      ""
 
 ###########################################################
 
-set -wq @L_1_VALUE "#{window_id}"
+set -wq @L_1_VALUE "#{window_index}"
 set -wqF  @L_1  " #{@L_1_VALUE} #[fg=#{SBG},bg=#{XBG},nobold]#{@LINE_NW2}"
 
 set -wq @R_2_VALUE "#{=-1:pane_tty}"
@@ -37,8 +35,8 @@ set -wqF @L_2  "#[fg=#{EBG},bold]#{@LINE_NW1}#[bg=#{EBG},fg=#{EFG}]#{@L_2_VALUE}
 set -q  @l_ww_flags "#{?window_zoomed_flag,✚ ,}#{?session_many_attached,  ,}"
 set -q  @l_wo_flag  "#{?window_zoomed_flag,#[bold],#[nobold]}"
 
-set -q  @l_ww_value "#[bold]#{window_name}#[dim,nobold]#{pane_current_command}·#[bold,nodim]#{=-12:pane_current_path}#[nodim,nobold]"
-set -q  @l_wo_value "#[dim]#{=-3:window_name}#{=-6:pane_current_path}#[nodim,nobold]"
+set -q  @l_ww_value "#[bold]#{window_index}#{window_name}#[dim,nobold]#{pane_current_command}·#[bold,nodim]#{=-12:pane_current_path}#[nodim,nobold]"
+set -q  @l_wo_value "#[dim]#{window_index}#{=-3:window_name}#{=-6:pane_current_path}#[nodim,nobold]"
 
 set -Fq @l_wx_prefix "#[bg=#{XBG},fg=#{WBG}]#{@LINE_NW1}#[default]#[noreverse]"
 set -Fq @l_wo_prefix "#[fg=#{OBG},bg=#{XBG}]#{@LINE_NW1}#[default]#[noreverse]"
@@ -90,5 +88,4 @@ set -gwF window-status-current-style "bg=#{WBG},fg=#{WFG}"
 set -wqF window-status-format        "#{@L_WO}"
 set -wq  window-status-separator ""
 set -wqF window-status-current-format "#{@L_WX}"
-
 
