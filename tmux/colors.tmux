@@ -1,5 +1,9 @@
-# mxc: path=/home/meta/.config/tmux/colors.tmux
-# colors from github.com/metaory/hexocd-colorscheme
+# mxc: path=$XDG_CONFIG_HOME/tmux/colors.tmux
+
+# targets github.com/metaory/xtmux
+# template github.com/metaory/confsubst
+# values github.com/metaory/hexocd-colorscheme
+
 
 C00='#222233'
 C01='#DD4466'
