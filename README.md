@@ -2,14 +2,14 @@ XTMUX
 =====
 
 <div align=center>
-  <img src=".github/assets/sbg.png" width="128px" />
-  <img src=".github/assets/wbg.png" width="128px" />
-  <img src=".github/assets/ebg.png" width="128px" />
+  <img src=".github/assets/sbg.png" width="96px" />
+  <img src=".github/assets/wbg.png" width="96px" />
+  <img src=".github/assets/ebg.png" width="96px" />
 </div>
 
 
 <p align="center">
-  <img src="./.github/assets/2405_31_061500-full.png" />
+  <img src="./.github/assets/2405_31_061530-full.png" />
 </p>
 
 <p align="center">
@@ -18,12 +18,10 @@ XTMUX
 
 ---
 
+<img src="./.github/assets/2022-01-29-163127_318x127_scrot.png"/>
 <details>
   <summary>
-    <h2>
-      <img src="./.github/assets/2022-01-29-163127_318x127_scrot.png"/>
-      Old
-    </h2>
+    <h2> Older </h2>
   </summary>
 
   <p align="center">
@@ -68,7 +66,7 @@ ln -sv $PWD/xtmux/tmux ~/.config/tmux
 # Start new tmux session with no arguments
 tmux
 ```
-> [!Info]
+> [!Important]
 > the theme file is from
 >
 > - colors.tmux template [confsubst](https://github.com/metaory/confsubst/blob/master/templates/colors.tmux)
