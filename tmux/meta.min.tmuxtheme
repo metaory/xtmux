@@ -1,64 +1,66 @@
-# set  -g @LINE_NW1      " "
-# set  -g @LINE_NW2      " "
-# set  -g @LINE_NE1      " "
-# set  -g @LINE_NE2      " "
+set  -g @SEPL2      ""
+set  -g @SEPR1      ""
+set  -g @SEPL1      ""
+set  -g @SEPR2      ""
 
-# set  -g @LINE_NW1      ""
-# set  -g @LINE_NW2      ""
-# set  -g @LINE_NE1      ""
-# set  -g @LINE_NE2      ""
+# set  -g @SEPL2      ""
+# set  -g @SEPR1      ""
+# set  -g @SEPL1      ""
+# set  -g @SEPR2      ""
 
-set  -g @LINE_NW1      ""
-set  -g @LINE_NW2      ""
-set  -g @LINE_NE1      ""
-set  -g @LINE_NE2      ""
+# set  -g @SEPL2      ""
+# set  -g @SEPR1      ""
+# set  -g @SEPL1      ""
+# set  -g @SEPR2      ""
 
 ###########################################################
 
-set -wq @L_1_VALUE "#{window_index}"
-set -wqF  @L_1  " #{@L_1_VALUE} #[fg=#{SBG},bg=#{XBG},nobold]#{@LINE_NW2}"
+set -wq @_xr3  "#{t/f/%%H#:%%M:client_activity}"
+set -wq @_wi  "#{window_index}"
+set -wq @_pi  "#{pane_index}"
+set -wq @_sw  "#{=-1:session_windows}"
+set -g  @_cmd "#{pane_current_command}"
 
-set -wq @R_2_VALUE "#{=-1:pane_tty}"
-set -gwF @R_2 "#[bg=#{XBG},fg=#{SBG}]#{@LINE_NE1}#[reverse,bg=#{SFG}]#{@R_2_VALUE}#[noreverse]#[bg=#{XBG},fg=#{SBG}]#{@LINE_NE2}#[bg=#{XBG},fg=#{EBG}]#{@LINE_NE1}#[bg=#{EBG},fg=#{EFG},bold]#{session_id} "
+set -wqF @L_1 "#[bold,fg=#{SFG},bg=#{SBG}] #{session_name}#[default,fg=#{SBG}]#{@SEPR1} "
 
-set -g  @__x_path "#{=/-16/.:pane_current_path}"
-set -g  @__x_name "#{pane_current_command}"
+set -wqF @L_2 "#[fg=#{EBG}]#{@SEPL2}#[bg=#{EBG},fg=#{EFG}]#{@_xr3}#[default,fg=#{EBG}]#{@SEPR1} "
 
-set -gF @__Xtim "#[fg=#{WK4}]%R"
-set -gF @__Xpth "#[fg=#{SK3}]#{@LINE_NE1}#[default]#[fg=#{SK6},bg=#{SK3}] #{@__x_path}#[fg=#{SK3}]"
-set -gF @__Xcmd "#[bg=#{SK2}]#{@LINE_NE2}#[default]#[bg=#{SK2},fg=#{SK8}]#{@__x_name}#[fg=#{SK2},bg=#{XBG}]"
-set -gF @R_1 "#{@__Xtim}#{@__Xpth}#{@__Xcmd}"
+set  -gF @R_1 "#[default,fg=#{SK2}]#{@SEPL1}#[default]#[bg=#{SK2},fg=#{SK8}]#{@_cmd}#[default,fg=#{SK2}]#{@SEPR1} "
 
-set -wq @L_2_VALUE "#{pane_index}"
-set -wqF @L_2  "#[fg=#{EBG},bold]#{@LINE_NW1}#[bg=#{EBG},fg=#{EFG}]#{@L_2_VALUE}#[bg=#{XBG},fg=#{EBG}]#{@LINE_NW2}"
+set -gwF @R_2 "#[default,fg=#{SBG}]#{@SEPL1}#[bg=#{SBG},fg=#{SFG}]#{@_pi}#[default,fg=#{SBG}]#{@SEPR2}#[fg=#{EBG}] #{@SEPL1}#[bg=#{EBG},fg=#{EFG},bold]#{@_wi} "
 
-set -q  @l_ww_flags "#{?window_zoomed_flag,✚ ,}#{?session_many_attached,  ,}"
+set -q  @l_ww_flags "#{?window_zoomed_flag,􂄟 ,}#{?session_many_attached,  ,}"
+
 set -q  @l_wo_flag  "#{?window_zoomed_flag,#[bold],#[nobold]}"
 
-set -q  @l_ww_value "#[bold]#{window_index}#{window_name}#[dim,nobold]#{pane_current_command}·#[bold,nodim]#{=-12:pane_current_path}#[nodim,nobold]"
-set -q  @l_wo_value "#[dim]#{window_index}#{=-3:window_name}#{=-6:pane_current_path}#[nodim,nobold]"
+set -q  @l_ww_value "#[bold]#{=/9/...:window_name}#[nobold,fg=#{C07}]⏽#[fg=#{C15}]#{pane_current_command}#[fg=#{C07}]⏽#{s./. .:#{=-14:pane_current_path}}"
 
-set -Fq @l_wx_prefix "#[bg=#{XBG},fg=#{WBG}]#{@LINE_NW1}#[default]#[noreverse]"
-set -Fq @l_wo_prefix "#[fg=#{OBG},bg=#{XBG}]#{@LINE_NW1}#[default]#[noreverse]"
+set -q  @l_wo_value  "#[bold,fg=#{C07}]#{=/7/...:window_name}#[nobold,fg=#{C15}]#{s./. .:#{=-6:...pane_current_path}}#[bg=#{XBG},fg=#{OBG}]#{@SEPR1}"
 
-set -Fq @l_wx_suffix "#[bg=#{XBG},fg=#{WBG}]#{@LINE_NW2}"
-set -Fq @l_wo_suffix "#[fg=#{OBG},bg=#{XBG}]#{@LINE_NW2}"
+set -Fq @l_wx_prefix "#[fg=#{WBG}]#{@SEPL2}#[bg=#{WBG},fg=#{WFG}]"
 
-set -Fwq @L_WX "#{@l_wx_prefix}#{@l_ww_flags}#{@l_ww_value}#{@l_wx_suffix}"
-set -Fwq @L_WO "#{@l_wo_prefix}#{@l_wo_flag}#{@l_ww_flags}#{@l_wo_value}#{@l_wo_suffix}"
+set -Fq @l_wo_prefix "#[fg=#{OBG},bg=#{XBG}]#{@SEPL2}#[default]"
+
+set -Fq @l_wx_suffix "#[default,fg=#{WBG}]#{@SEPR1}"
+
+set -wqF @L_WX "#{@l_wx_prefix}#{@l_ww_flags}#{@l_ww_value}#{@l_wx_suffix}"
+
+set -wqF @L_WO "#{@l_wo_prefix}#{@l_wo_flag}#{@l_ww_flags}#{@l_wo_value}"
+
+#   ##################################
 
 set -g   status on
-set -g   status-position bottom
+set -g   status-position top
 set -g   monitor-activity off
 set -g   visual-activity off
 set -g   aggressive-resize on
 set -g   status-interval 300
-set -g   status-justify left 
-set -g   status-left-length "60"
-set -g   status-right-length "40"
+set -g   status-justify left
+set -g   status-left-length "70"
+set -g   status-right-length "45"
 set -g   clock-mode-style 24
 
-## ########################################################
+#   ##################################
 
 set -gF  display-panes-active-colour "#{WBG}"
 set -gF  display-panes-colour "#{SK4}"
@@ -66,26 +68,30 @@ set -gF  message-command-style "fg=#{SBG},bg=#{SK3},bold"
 set -gF  message-style "fg=#{WBG},bg=#{SK2},bold"
 
 set -gwF clock-mode-colour "#{EBG}"
-set -gwF pane-border-style "fg=#{SK2}"
+set -gwF pane-border-style "fg=#{XBG}"
 set -gwF pane-active-border-style "fg=#{WBG}"
 
 set -gwF mode-style "bg=#{WBG},fg=#{WFG},bold"
+
 set -gwF copy-mode-match-style         "bg=#{SBG},fg=#{SFG},bold"
+
 set -gwF copy-mode-current-match-style "bg=#{EBG},fg=#{EFG},bold"
+
 set -gwF copy-mode-mark-style          "bg=#{WBG},fg=#{WFG},bold"
-#   ########################################################
-set -gF status-style                "bg=#{XBG},fg=#{WFG}"
-set -gF status-left-style           "bg=#{SBG},fg=#{SFG},bold"
-set -gF status-right-style          "bg=#{XBG},fg=#{SK7},bold,italics"
-#   ########################################################
-set -wqF  status-left  "#{@L_1}#{@L_2}"
-set -wqF  status-right "#{@R_1}#{@R_2}"
-#   ########################################################
-set -gF window-style                 "bg=#{XBG},fg=#{XFG}"
-set -gF window-status-style          "bg=#{OBG},fg=#{OFG}"
-set -gwF window-status-last-style    "bg=#{OBG},fg=#{WBX}"
-set -gwF window-status-current-style "bg=#{WBG},fg=#{WFG}"
-set -wqF window-status-format        "#{@L_WO}"
-set -wq  window-status-separator ""
+
+
+#   ##################################
+set -gF status-style                "fg=#{WFG}"
+set -gF status-left-style           "fg=#{SFG},bold"
+set -gF status-right-style          "fg=#{SK7},bold"
+#   ##################################
+set -wqF  status-left  "#{@L_1}"
+set -wqF  status-right "#{@R_1}#{@L_2}#{@R_2}"
+#   ##################################
+set -gF  window-style                 "push-default"
+set -gF  window-status-style          "bg=#{OBG},fg=#{OFG}"
+set -gwF window-status-last-style     "bg=#{OBG},fg=#{OFG}"
+set -gwF window-status-current-style  "fg=#{EBG}"
+set -wqF window-status-format         "#{@L_WO}"
 set -wqF window-status-current-format "#{@L_WX}"
 
