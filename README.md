@@ -55,18 +55,24 @@ XTMUX
 
 # Installation
 
-- clone repo
-- link it
+- CLONE
+- LINK
+
 
 ```ex
 # Clone the repo
-git clone git@github.com:metaory/xtmux.git
+git clone --recursive git@github.com:metaory/xtmux.git
 
 # Link it
-ln -sv $PWD/xtmux/tmux ~/.config/tmux
+ln -svf $PWD/xtmux/tmux ~/.config/tmux
 
-# Start new tmux session with no arguments
+# new tmux session with no arguments should work!
 tmux
+
+# install plugins on first run (optional)
+# > Press prefix + I (capital i, as in Install) to fetch the plugin.
+# eg. C-s + I
+
 ```
 > [!Important]
 > the theme file is from
