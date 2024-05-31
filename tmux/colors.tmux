@@ -1,4 +1,4 @@
-# mxc: path=$XDG_CONFIG_HOME/tmux/colors.tmux
+# mxc: path=/home/meta/.config/tmux/colors.tmux
 
 # targets github.com/metaory/xtmux
 # template github.com/metaory/confsubst
@@ -33,7 +33,7 @@ CY7='#AACCEE'
 CY8='#88aabb'
 
 CX0='#111122'
-CX1='#FF0055'
+CX1='#EE1144'
 CX2='#11AA22'
 CX3='#FFBB00'
 CX4='#2266FF'
@@ -42,7 +42,7 @@ CX6='#11AAfF'
 CX7='#334455'
 CX8='#11bbee'
 
-SBG='#FF0055'
+SBG='#EE1144'
 SFG='#000000'
 WBG='#4400EE'
 WFG='#FFFFFF'
