@@ -1,10 +1,10 @@
-XTMUX
-=====
-
 <div align=center>
   <img src=".github/assets/sbg.png" width="96px" />
   <img src=".github/assets/wbg.png" width="96px" />
   <img src=".github/assets/ebg.png" width="96px" />
+</div>
+<div align=center>
+  <h1>X̶̶TMUX</h1>
 </div>
 
 
