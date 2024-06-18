@@ -1,6 +1,10 @@
 set -g default-terminal "tmux-256color"
 set -ag terminal-overrides ",xterm-256color:RGB"
 
+set -gw automatic-rename off
+# set -gw automatic-rename-format "#{pane_current_command}"
+# set -gw automatic-rename-format "#{?pane_in_mode,[tmux],#{pane_current_command}}#{?pane_dead,[dead],}"
+
 set -gw xterm-keys on
 set -gw pane-base-index 1
 set -gw pane-border-status off

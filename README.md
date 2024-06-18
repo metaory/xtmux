@@ -18,6 +18,15 @@ XTMUX
 
 ---
 
+ENVIRONMENT
+===========
+
+Defaults:
+```sh
+export TMUX_WIN_ICO="⛛ "
+export TMUX_SES_ICO="✱ "
+```
+
 <details>
   <summary>
     <h2> Older </h2>
