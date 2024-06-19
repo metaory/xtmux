@@ -62,7 +62,7 @@ bind -T prefix p popup
 bind -T prefix c command-prompt \
     -I "#{TMUX_WIN_ICO}#{e|+:#{session_windows},1}" "new-window -n  '%%'"
 bind -T prefix C-c command-prompt \
-    -I "#{TMUX_SES_ICO}" "new-session -s '%%'"
+    -I "#{TMUX_SES_ICO}" "new-session -A -s '#{next_session_id}%%' -n '#{TMUX_WIN_ICO}'"
 #  ╶╶╶╶╶╶───────╴──────╴──────╴─────╴────╴───╴──╴─╴─╶
 bind -T prefix , command-prompt -I "#W" { rename-window "%%" }
 bind -T prefix . command-prompt -I "#S" { rename-session "%%" }

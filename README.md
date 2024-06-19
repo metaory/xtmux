@@ -81,8 +81,8 @@ tmux
 # install plugins on first run (optional)
 # > Press prefix + I (capital i, as in Install) to fetch the plugin.
 # eg. C-s + I
-
 ```
+
 > [!Important]
 > the theme file is from
 >
