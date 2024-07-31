@@ -18,7 +18,7 @@ set -g  display-time 3000
 set -g  history-limit 10000
 set -g  clock-mode-style 24
 set -g  set-titles on
-set -g  set-titles-string "#{pane_current_command} #{=-10:pane_current_path}|#{@WIC}"
+set -g  set-titles-string "#{pane_current_command} #{=-10:pane_current_path}"
 set -g  renumber-windows on
 set -g  automatic-rename on
 set -g  allow-rename on
