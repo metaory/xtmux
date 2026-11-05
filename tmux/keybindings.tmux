@@ -153,6 +153,15 @@ bind -n C-d if-shell -b "[ $(tmux display-message \
 #   "#{?pane_marked,Unmark,Mark}" m { select-pane -m } \
 #   "#{?#{>:#{window_panes},1},,-}#{?window_zoomed_flag,Unzoom,Zoom}" z { resize-pane -Z } >display-menu
 #  ╶╶╶╶╶╶───────╴──────╴──────╴─────╴────╴───╴──╴─╴─╶
+bind -T prefix S run-shell "bash -c '\
+args=(-T \"#[align=centre]sessions\" -x C -y C --); \
+cur=#{q:client_session}; \
+while IFS=\$(printf \\\\t) read -r label name; do \
+[ \"\$name\" = \"\$cur\" ] && label=\"-\$label\"; \
+args+=(\"\$label\" \"\" \"switch-client -t \${name@Q}\"); \
+done < <(tmux list-sessions -F \"##{?session_attached,●,○} ##{session_name}	##{session_name}\"); \
+tmux display-menu \"\${args[@]}\"'"
+#  ╶╶╶╶╶╶───────╴──────╴──────╴─────╴────╴───╴──╴─╴─╶
 bind -T prefix C-r display-menu -T \
   '#[align=centre]#{window_index}:#{window_name} #[fg=#{@WBG}]' \
   '#[fg=colour4] ⏻ #[fg=#{@SBG}] Source' \
