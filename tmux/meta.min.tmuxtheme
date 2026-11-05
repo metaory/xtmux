@@ -7,8 +7,14 @@ set  -g @SPR2      ""
 run-shell '
 # NUM=('➊ ' '➋ ' '➌ ' '➍ ' '➎ ' '➏ ' '➐ ' '➑ ' '➒ ' '➓ ');
 NUM=(􀀻  􀀽  􀀿  􀁁  􀁃  􀁅  􀁇  􀁉  􀁋  􀀹 );
-WIN=$(( $(tmux display-message -p "#{window_index}") - 1));
-tmux rename-window "${NUM[${WIN}]} ";'
+T="#{window_id}";
+WIN=$((#{window_index} - 1));
+NAME=$(tmux display-message -p -t "$T" "##{window_name}");
+ICO=$(tmux display-message -p -t "$T" "##{TMUX_WIN_ICO}");
+AUTO=$(tmux show-options -Awv -t "$T" automatic-rename);
+G="${NUM[WIN]} ";
+[ "$AUTO" = on ] || [ "$NAME" = "$ICO" ] || [ "$NAME" = "$ICO$((WIN + 1))" ] && NAME=
+[ "${NAME#"$G"}" != "$NAME" ] || tmux rename-window -t "$T" "$G$NAME";'
 # set  -g @SPL2      ""
 # set  -g @SPR1      ""
 # set  -g @SPL1      ""
@@ -48,8 +54,7 @@ set -q  @l_ww_flags "#{?window_zoomed_flag, ,}#{?session_many_attached,  ,
 set -q  @l_wo_flag  "#{?window_zoomed_flag,#[bold],#[nobold]}"
 #   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 set  -gwq @l_ww_val "#[bold,bg=#{SBG}]#{window_name}"
-set -agwq @l_ww_val "#[bg=#{CZ4},fg=#{SBG}]#{@SPR2} #[nobold,fg=#{PK2}]"
-set -agwq @l_ww_val "#{s./. .:#{=-14:pane_current_path}}"
+set -agwq @l_ww_val "#[bg=#{CZ4},fg=#{SBG}]#{@SPR2}"
 # ╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶╴╶─╶╶─╶╴╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶
 set -Fq   @l_wx_pre "#[fg=#{SBG}]#{@SPL2}#[bg=#{SBG},fg=#{SFG}]"
 set -Fq   @l_wx_suf "#[default,fg=#{CZ4}]#{@SPR1}"

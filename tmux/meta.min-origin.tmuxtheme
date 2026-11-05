@@ -1,0 +1,111 @@
+set  -g @SPL2      ""
+set  -g @SPR1      ""
+set  -g @SPL1      ""
+set  -g @SPR2      ""
+
+# NUF=(􀀻 􀀽 􀀿 􀁁 􀁃 􀁅 􀁇 􀁉 􀁋 􀀹 );
+run-shell '
+# NUM=('➊ ' '➋ ' '➌ ' '➍ ' '➎ ' '➏ ' '➐ ' '➑ ' '➒ ' '➓ ');
+NUM=(􀀻  􀀽  􀀿  􀁁  􀁃  􀁅  􀁇  􀁉  􀁋  􀀹 );
+WIN=$(( $(tmux display-message -p "#{window_index}") - 1));
+tmux rename-window "${NUM[${WIN}]} ";'
+# set  -g @SPL2      ""
+# set  -g @SPR1      ""
+# set  -g @SPL1      ""
+# set  -g @SPR2      ""
+
+# set  -g @SPL2      ""
+# set  -g @SPR1      ""
+# set  -g @SPL1      ""
+# set  -g @SPR2      ""
+#   ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+#   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+set -wq @_xr3 "#{t/f/%%H#:%%M:client_activity}"
+set -wq @_pi  "#{pane_index}"
+set -wq @_wi  "#{window_index}"
+set -wq @_sw  "#{=-1:session_windows}"
+set -g  @_cmd "#{pane_current_command}"
+#   ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+#   ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+set  -gwqF @L_1 "#[bold,fg=#{SFG},bg=#{SBG}] #{session_name}"
+set -agwqF @L_1 "#[default,fg=#{SBG}]#{@SPR1} "
+#   ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+#   ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+set  -gwqF @R_1 "#[default,fg=#{CX5}]#{@SPL1}#[default]#[bg=#{CX5},fg=#{CY5}]"
+set -agwqF @R_1 "#{@_cmd}#[default,fg=#{CX5}]#{@SPR1} "
+#   ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+#   ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+set  -gwqF @R_2 "#[fg=#{EBG}]#{@SPL2}#[bg=#{EBG},fg=#{EFG}]#{@_xr3}"
+set -agwqF @R_2 "#[default,fg=#{EBG}]#{@SPR1} "
+#   ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+#   ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+set  -gwqF @R_3 "#[default,fg=#{SBG}]#{@SPL1}#[bg=#{SBG},fg=#{SFG}]#{@_pi}"
+set -agwqF @R_3 "#[default,fg=#{SBG}]#{@SPR2} #[fg=#{EBG}]"
+set -agwqF @R_3 "#{@SPL1}#[bg=#{EBG},fg=#{EFG},bold]#{@_wi} "
+#   ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+#   ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+set -q  @l_ww_flags "#{?window_zoomed_flag, ,}#{?session_many_attached,  ,}"
+set -q  @l_wo_flag  "#{?window_zoomed_flag,#[bold],#[nobold]}"
+#   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+set  -gwq @l_ww_val "#[bold,bg=#{SBG}]#{window_name}"
+set -agwq @l_ww_val "#[bg=#{CZ4},fg=#{SBG}]#{@SPR2} #[nobold,fg=#{PK2}]"
+set -agwq @l_ww_val "#{s./. .:#{=-14:pane_current_path}}"
+# ╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶╴╶─╶╶─╶╴╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶
+set -Fq   @l_wx_pre "#[fg=#{SBG}]#{@SPL2}#[bg=#{SBG},fg=#{SFG}]"
+set -Fq   @l_wx_suf "#[default,fg=#{CZ4}]#{@SPR1}"
+set -wqF  @L_WX     "#{@l_wx_pre}#{@l_ww_flags}#{@l_ww_val}#{@l_wx_suf}"
+#   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+set  -gwq @l_wo_val "#[bg=#{CZ4},fg=#{WK7}]#{window_name}"
+set -agwq @l_wo_val "#[fg=#{WK7}]#{s./..:#{=-6:pane_current_path}}"
+set -agwq @l_wo_val "#[bg=#{WK2},fg=#{CZ4}]#{@SPR1}"
+# ╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶╴╶─╶╶─╶╴╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶
+set -Fq   @l_wo_pre "#[fg=#{CZ4},bg=#{WK2}]#{@SPL2}#[default]"
+set -wqF  @L_WO     "#{@l_wo_pre}#{@l_wo_flag}#{@l_ww_flags}#{@l_wo_val}"
+#   ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+#   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+set -g   status on
+set -g   status-position top
+set -g   monitor-activity off
+set -g   visual-activity off
+set -g   aggressive-resize on
+set -g   status-interval 300
+set -g   status-justify left
+set -g   status-left-length "70"
+set -g   status-right-length "45"
+set -g   clock-mode-style 24
+#   ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+#   ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+set -gF  display-panes-active-colour   "#{WBG}"
+set -gF  display-panes-colour          "#{SK4}"
+set -gwF clock-mode-colour             "#{EBG}"
+#   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+set -gF  message-command-style         "fg=#{WFG},bg=#{WBG},bold"
+set -gF  message-style                 "fg=#{WFG},bg=#{WBG},bold"
+#   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+set -gwF mode-style                    "bg=#{WBG},fg=#{WFG},bold"
+set -gwF copy-mode-mark-style          "bg=#{WBG},fg=#{WFG},bold"
+set -gwF copy-mode-match-style         "bg=#{SBG},fg=#{SFG},bold"
+set -gwF copy-mode-current-match-style "bg=#{EBG},fg=#{EFG},bold"
+#   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+set -gwF pane-border-style             "fg=#{XBG}"
+set -gwF pane-active-border-style      "fg=#{WBG}"
+#   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+set -gF   status-style                 "bg=#{WK2},fg=#{WK8}"
+#   ────────────────────────────────────────────────────────────
+set -wqF  status-right                 "#{@R_1}#{@R_2}#{@R_3}"
+set -gF   status-right-style           "fg=#{XBG},bold"
+#   ────────────────────────────────────────────────────────────
+set -wqF  status-left                  "#{@L_1}"
+set -gF   status-left-style            "bg=#{SBG},fg=#{SFG},bold"
+#   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+set -wF window-style                   "push-default"
+set -wF window-status-style            "bg=#{SBG}"
+set -wF window-status-last-style       "fg=#{EBG}"
+set -wF window-status-current-style    "fg=#{EBG}"
+set -wF window-status-format           "#{@L_WO}"
+set -wF window-status-current-format   "#{@L_WX}"
+#   ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+#   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#   ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+
+# vim:ft=tmux
