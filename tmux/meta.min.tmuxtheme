@@ -61,7 +61,7 @@ set -Fq   @l_wx_suf "#[default,fg=#{CZ4}]#{@SPR1}"
 set -wqF  @L_WX     "#{@l_wx_pre}#{@l_ww_flags}#{@l_ww_val}#{@l_wx_suf}"
 #   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 set  -gwq @l_wo_val "#[bg=#{CZ4},fg=#{WK7}]#{window_name}"
-set -agwq @l_wo_val "#[fg=#{WK7}]#{s./..:#{=-6:pane_current_path}}"
+set -agwq @l_wo_val "⏽#[fg=#{WK7}]#{s./..:#{=-8:pane_current_path}}"
 set -agwq @l_wo_val "#[bg=#{WK2},fg=#{CZ4}]#{@SPR1}"
 # ╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶╴╶─╶╶─╶╴╶─╶╶─╶─╶─╶╶─╶─╶─╶╶─╶
 set -Fq   @l_wo_pre "#[fg=#{CZ4},bg=#{WK2}]#{@SPL2}#[default]"
