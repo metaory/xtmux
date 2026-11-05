@@ -23,7 +23,7 @@ set -g  renumber-windows on
 set -g  automatic-rename on
 set -g  allow-rename on
 set -g  remain-on-exit off
-set -g  detach-on-destroy off
+set -g  detach-on-destroy on
 set -g  focus-events on
 
 # vim:ft=tmux
